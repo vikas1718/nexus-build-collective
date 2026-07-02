@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Sparkles, ChevronDown } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
 import heroLaptop from "@/assets/hero-laptop.png";
 import { Blobs, Counter } from "./primitives";
 
