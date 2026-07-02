@@ -7,9 +7,10 @@ import {
   PenTool, Code2, TestTube, CloudUpload,
 } from "lucide-react";
 import { Section, SectionHeading, fadeUp } from "./primitives";
-import team1 from "@/assets/team-1.jpg";
-import team2 from "@/assets/team-2.jpg";
-import team3 from "@/assets/team-3.jpg";
+import vikas from "@/assets/vikas.jpg";
+import chaman from "@/assets/chaman.jpg";
+import shashank from "@/assets/shashank.jpg";
+
 
 /* ---------------- TRUST ---------------- */
 const trust = [
