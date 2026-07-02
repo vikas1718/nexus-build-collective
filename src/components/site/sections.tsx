@@ -47,44 +47,43 @@ export function Trust() {
   );
 }
 
-/* ---------------- ABOUT ---------------- */
-const team = [
+/* ---------------- ABOUT / FOUNDERS ---------------- */
+const founders = [
   {
-    photo: team1, name: "Daniel Reyes", role: "Full-Stack Lead",
-    skills: ["React", "Node.js", "AWS"],
-    bio: "Turns complex requirements into clean, scalable architectures.",
+    initials: "VS",
+    photo: vikas,
+    name: "Vikas S P",
+    role: "Co-Founder · Engineering",
+    bio: "Systems engineer specializing in distributed platforms, backend architecture, and developer tooling.",
   },
   {
-    photo: team2, name: "Aisha Karim", role: "UI/UX & Frontend",
-    skills: ["Figma", "TypeScript", "Motion"],
-    bio: "Crafts delightful, accessible interfaces users love.",
+    initials: "CR",
+    photo: chaman,
+    name: "Chaman Raj",
+    role: "Co-Founder · AI & Product",
+    bio: "AI researcher turned builder. Leads applied ML, LLM systems, and product experience.",
   },
   {
-    photo: team3, name: "Marco Silva", role: "AI & Backend",
-    skills: ["Python", "OpenAI", "PostgreSQL"],
-    bio: "Builds intelligent systems and rock-solid APIs.",
+    initials: "SM",
+    photo: shashank,
+    name: "Shashank S M",
+    role: "Co-Founder · Cloud & Design",
+    bio: "Cloud architect and designer. Bridges infrastructure, DevOps, and beautiful interfaces.",
   },
-];
-
-const timeline = [
-  { year: "2019", text: "Three developers met on a freelance project and clicked instantly." },
-  { year: "2021", text: "Formed Nebula Studio to build products end-to-end." },
-  { year: "2023", text: "Expanded into AI-powered solutions for startups." },
-  { year: "2025", text: "120+ products shipped for clients across the globe." },
 ];
 
 export function About() {
   return (
     <Section id="about">
       <SectionHeading
-        eyebrow="About Us"
-        title={<>The team behind your <span className="text-gradient">next big thing</span></>}
-        subtitle="A small, senior team that treats your product like our own."
+        eyebrow="Meet the founders"
+        title={<>Three engineers, <span className="text-gradient">one company</span></>}
+        subtitle="TrioTech was built by three friends who share a belief: great software takes craft, not headcount."
       />
       <div className="grid gap-6 md:grid-cols-3">
-        {team.map((m, i) => (
+        {founders.map((f, i) => (
           <motion.div
-            key={m.name}
+            key={f.name}
             variants={fadeUp}
             custom={i}
             initial="hidden"
@@ -94,26 +93,22 @@ export function About() {
           >
             <div className="relative aspect-square overflow-hidden">
               <img
-                src={m.photo}
-                alt={m.name}
+                src={f.photo}
+                alt={f.name}
                 width={512}
                 height={512}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+              <div className="absolute top-4 left-4 grid h-10 w-10 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-sm font-bold text-primary-foreground shadow-glow">
+                {f.initials}
+              </div>
             </div>
             <div className="p-6">
-              <h3 className="text-lg font-semibold">{m.name}</h3>
-              <p className="text-sm text-primary">{m.role}</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {m.skills.map((s) => (
-                  <span key={s} className="rounded-full bg-secondary px-2.5 py-1 text-xs text-muted-foreground">
-                    {s}
-                  </span>
-                ))}
-              </div>
-              <p className="mt-3 text-sm text-muted-foreground">{m.bio}</p>
+              <h3 className="text-lg font-semibold">{f.name}</h3>
+              <p className="text-sm text-primary">{f.role}</p>
+              <p className="mt-3 text-sm text-muted-foreground">{f.bio}</p>
               <div className="mt-5 flex gap-3">
                 <a href="https://github.com" target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-lg glass px-3 py-2 text-xs font-medium transition-colors hover:text-primary">
                   <Github className="h-4 w-4" /> GitHub
@@ -126,35 +121,10 @@ export function About() {
           </motion.div>
         ))}
       </div>
-
-      <div className="mt-16">
-        <h3 className="mb-8 text-center text-xl font-semibold">How we started</h3>
-        <div className="relative mx-auto max-w-3xl">
-          <div className="absolute left-4 top-0 h-full w-px bg-border md:left-1/2" />
-          {timeline.map((t, i) => (
-            <motion.div
-              key={t.year}
-              variants={fadeUp}
-              custom={i}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className={`relative mb-8 pl-12 md:w-1/2 md:pl-0 ${i % 2 ? "md:ml-auto md:pl-12" : "md:pr-12 md:text-right"}`}
-            >
-              <span className={`absolute top-1 grid h-8 w-8 place-items-center rounded-full bg-[image:var(--gradient-primary)] text-xs font-bold text-primary-foreground left-0 ${i % 2 ? "md:-left-4" : "md:-right-4 md:left-auto"}`}>
-                <CheckCircle2 className="h-4 w-4" />
-              </span>
-              <div className="rounded-2xl glass p-4">
-                <div className="text-sm font-bold text-primary">{t.year}</div>
-                <p className="mt-1 text-sm text-muted-foreground">{t.text}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
     </Section>
   );
 }
+
 
 /* ---------------- SERVICES ---------------- */
 const services = [
