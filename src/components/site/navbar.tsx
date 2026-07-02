@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Menu, X, Rocket } from "lucide-react";
+import { useNavigate, useRouterState, Link } from "@tanstack/react-router";
+import { ThemeToggle } from "./theme";
 
 const links = [
   { label: "About", href: "#about" },
@@ -14,6 +16,8 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -24,7 +28,16 @@ export function Navbar() {
 
   const go = (href: string) => {
     setOpen(false);
+    if (pathname !== "/") {
+      navigate({ to: "/", hash: href.replace("#", "") });
+      return;
+    }
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const goContact = () => {
+    setOpen(false);
+    navigate({ to: "/contact" });
   };
 
   return (
