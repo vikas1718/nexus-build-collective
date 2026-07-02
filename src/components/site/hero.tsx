@@ -72,8 +72,11 @@ const stats = [
 ];
 
 export function Hero() {
+  const navigate = useNavigate();
   const scrollTo = (id: string) =>
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+
+
 
   return (
     <section id="home" className="relative overflow-hidden pt-36 pb-16 sm:pt-44">
