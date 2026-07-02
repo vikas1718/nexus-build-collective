@@ -61,7 +61,7 @@ const founders = [
     role: "Co-Founder · Engineering",
     bio: "Systems engineer specializing in distributed platforms, backend architecture, and developer tooling.",
     github: "https://github.com/vikas1718/",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/vikas-s-p/",
   },
   {
     initials: "CR",
@@ -70,7 +70,7 @@ const founders = [
     role: "Co-Founder · AI & Product",
     bio: "AI researcher turned builder. Leads applied ML, LLM systems, and product experience.",
     github: "https://github.com/chamanraj122004-blip/",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/chaman-raj-800043297/",
   },
   {
     initials: "SM",
@@ -79,7 +79,7 @@ const founders = [
     role: "Co-Founder · Cloud & Design",
     bio: "Cloud architect and designer. Bridges infrastructure, DevOps, and beautiful interfaces.",
     github: "https://github.com/shashank143-gowda/",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/shashank-s-m-405196329",
   },
 ];
 
