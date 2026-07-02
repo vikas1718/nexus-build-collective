@@ -1,20 +1,73 @@
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, Rocket, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, Rocket, CheckCircle2, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { Section, SectionHeading } from "./primitives";
+import { supabase, type ContactSubmission } from "@/lib/supabase";
 
 const field =
   "w-full rounded-xl border border-input bg-background/40 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/30";
 
+const initialForm = {
+  name: "",
+  email: "",
+  phone: "",
+  company: "",
+  project_type: "",
+  budget: "",
+  timeline: "",
+  reference_website: "",
+  message: "",
+};
+
 export function Contact() {
+  const [form, setForm] = useState(initialForm);
+  const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
-  const onSubmit = (e: FormEvent) => {
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    if (!form.name || !form.email || !form.project_type || !form.budget || !form.message) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
+    setLoading(true);
+
+    const payload: ContactSubmission = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone || undefined,
+      company: form.company || undefined,
+      project_type: form.project_type as ContactSubmission["project_type"],
+      budget: form.budget as ContactSubmission["budget"],
+      timeline: form.timeline || undefined,
+      reference_website: form.reference_website || undefined,
+      message: form.message,
+    };
+
+    const { error } = await supabase.from("contact_submissions").insert([payload]);
+
+    setLoading(false);
+
+    if (error) {
+      console.error(error);
+      toast.error("Something went wrong. Please try again or email us directly.");
+      return;
+    }
+
     setSent(true);
     toast.success("Thanks! We'll be in touch within 24 hours.");
+    setForm(initialForm);
     setTimeout(() => setSent(false), 3500);
-    (e.target as HTMLFormElement).reset();
   };
 
   return (
@@ -40,14 +93,6 @@ export function Contact() {
                 <div className="text-sm font-medium">{c.value}</div>
               </div>
             </div>
-          ))}
-          <div className="overflow-hidden rounded-2xl glass">
-            <iframe
-              title="Our location"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-0.15%2C51.49%2C-0.08%2C51.52&layer=mapnik"
-              className="h-56 w-full grayscale"
-              loading="lazy"
-            />
           </div>
         </div>
 
@@ -59,32 +104,98 @@ export function Contact() {
           className="rounded-3xl glass p-6 sm:p-8"
         >
           <div className="grid gap-4 sm:grid-cols-2">
-            <input required placeholder="Name" className={field} />
-            <input required type="email" placeholder="Email" className={field} />
-            <input placeholder="Phone" className={field} />
-            <input placeholder="Company" className={field} />
-            <select className={field} defaultValue="">
+            <input
+              required
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Name"
+              className={field}
+            />
+            <input
+              required
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Email"
+              className={field}
+            />
+            <input
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
+              placeholder="Phone"
+              className={field}
+            />
+            <input
+              name="company"
+              value={form.company}
+              onChange={handleChange}
+              placeholder="Company"
+              className={field}
+            />
+            <select
+              required
+              name="project_type"
+              value={form.project_type}
+              onChange={handleChange}
+              className={field}
+            >
               <option value="" disabled>Project Type</option>
               <option>Website</option>
               <option>Web App</option>
               <option>AI Integration</option>
               <option>E-Commerce</option>
             </select>
-            <select className={field} defaultValue="">
+            <select
+              required
+              name="budget"
+              value={form.budget}
+              onChange={handleChange}
+              className={field}
+            >
               <option value="" disabled>Budget</option>
               <option>$2k - $5k</option>
               <option>$5k - $15k</option>
               <option>$15k+</option>
             </select>
-            <input placeholder="Timeline" className={field} />
-            <input placeholder="Reference Website" className={field} />
+            <input
+              name="timeline"
+              value={form.timeline}
+              onChange={handleChange}
+              placeholder="Timeline"
+              className={field}
+            />
+            <input
+              name="reference_website"
+              value={form.reference_website}
+              onChange={handleChange}
+              placeholder="Reference Website"
+              className={field}
+            />
           </div>
-          <textarea required placeholder="Project Description" rows={4} className={`${field} mt-4`} />
+          <textarea
+            required
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+            placeholder="Project Description"
+            rows={4}
+            className={`${field} mt-4`}
+          />
           <button
             type="submit"
-            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[image:var(--gradient-primary)] px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
+            disabled={loading}
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-(image:--gradient-primary) px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
           >
-            {sent ? <><CheckCircle2 className="h-4 w-4" /> Sent!</> : <>Let's Build Together <Send className="h-4 w-4" /></>}
+            {loading ? (
+              <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</>
+            ) : sent ? (
+              <><CheckCircle2 className="h-4 w-4" /> Sent!</>
+            ) : (
+              <>Let's Build Together <Send className="h-4 w-4" /></>
+            )}
           </button>
         </motion.form>
       </div>
@@ -104,7 +215,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-primary-foreground">
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-(image:--gradient-primary) text-primary-foreground">
               <Rocket className="h-5 w-5" />
             </span>
             <span className="text-lg font-bold">TRIA<span className="text-gradient"> Solutions</span></span>
