@@ -88,7 +88,7 @@ export function Navbar() {
               onClick={goContact}
               className="hidden rounded-xl bg-[image:var(--gradient-primary)] px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105 sm:block"
             >
-              Start Project
+              Book Now
             </button>
             <button
               aria-label="Toggle menu"
@@ -129,7 +129,7 @@ export function Navbar() {
                 onClick={goContact}
                 className="mt-2 rounded-xl bg-[image:var(--gradient-primary)] px-4 py-3 text-sm font-semibold text-primary-foreground"
               >
-                Start Project
+                Book Now
               </button>
             </div>
           </motion.nav>
