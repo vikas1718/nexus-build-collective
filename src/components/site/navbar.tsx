@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Menu, X, Rocket } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useNavigate, useRouterState, Link } from "@tanstack/react-router";
 import { ThemeToggle } from "./theme";
 
@@ -56,11 +56,9 @@ export function Navbar() {
           }`}
         >
           <button onClick={() => go("#home")} className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-primary-foreground shadow-glow">
-              <Rocket className="h-5 w-5" />
-            </span>
+            <img src="/favicon.ico" alt="TRIA Solutions" className="h-5 w-5" />
             <span className="text-lg font-bold tracking-tight">
-              TRIA<span className="text-gradient"> Solutions</span>
+              TRIA<span> Solutions</span>
             </span>
           </button>
 
