@@ -244,11 +244,26 @@ export function Testimonials() {
 
 /* ---------------- FAQ ---------------- */
 const faqs = [
-  { q: "How much does a website cost?", a: "Projects typically start around $2,000 for a landing page and scale based on scope. We provide a fixed quote after discovery." },
-  { q: "How long will it take?", a: "A landing page takes 1-2 weeks, while full web apps usually run 6-12 weeks depending on complexity." },
-  { q: "Do you provide hosting?", a: "Yes — we set up fast, secure hosting and can manage it for you, or hand over full ownership." },
-  { q: "Can you redesign my website?", a: "Absolutely. We audit your current site, then modernize the design, performance, and SEO." },
-  { q: "Do you offer maintenance?", a: "Yes, we offer flexible monthly plans covering updates, monitoring, and support." },
+  {
+    q: "What kind of websites do you build?",
+    a: "We build custom websites including business websites, portfolio websites, landing pages, e-commerce stores, and web applications tailored to your requirements.",
+  },
+  {
+    q: "How do we get started?",
+    a: "Simply contact us with your idea. We'll discuss your requirements, understand your goals, and suggest the best solution before starting the project.",
+  },
+  {
+    q: "Can you build a website based on my idea?",
+    a: "Absolutely! Whether you have a clear plan or just an idea, we'll help transform it into a professional website or web application.",
+  },
+  {
+    q: "Will my website work on mobile devices?",
+    a: "Yes. Every website we build is fully responsive and optimized to provide a great experience across desktops, tablets, and smartphones.",
+  },
+  {
+    q: "Do you provide support after the website is completed?",
+    a: "Yes. We offer post-launch support and can help with updates, maintenance, and future improvements as your business grows.",
+  },
 ];
 
 export function FAQ() {
