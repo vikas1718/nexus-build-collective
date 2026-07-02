@@ -74,11 +74,18 @@ export function Navbar() {
                 {l.label}
               </button>
             ))}
+            <Link
+              to="/contact"
+              className="rounded-lg px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Contact
+            </Link>
           </nav>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <button
-              onClick={() => go("#contact")}
+              onClick={goContact}
               className="hidden rounded-xl bg-[image:var(--gradient-primary)] px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105 sm:block"
             >
               Start Project
