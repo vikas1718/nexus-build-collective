@@ -79,19 +79,35 @@ export function Contact() {
       />
       <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
         <div className="space-y-4">
-          {[
-            { icon: Mail, label: "Email", value: "hello@triasolutions.com" },
-            { icon: Phone, label: "Phone", value: "+1 (000) 123-4567" },
-            { icon: MapPin, label: "Location", value: "Remote — Worldwide" },
-          ].map((c) => (
-            <div key={c.label} className="flex items-center gap-4 rounded-2xl glass p-5">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
-                <c.icon className="h-5 w-5" />
-              </div>
-              <div>
-                <div className="text-xs text-muted-foreground">{c.label}</div>
-                <div className="text-sm font-medium">{c.value}</div>
-              </div>
+          <div className="flex items-center gap-4 rounded-2xl glass p-5">
+            <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
+              <Mail className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="text-xs text-muted-foreground">Email</div>
+              <div className="text-sm font-medium">triasolutions14@gmail.com</div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 rounded-2xl glass p-5">
+            <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
+              <Phone className="h-5 w-5" />
+            </div>
+            <div className="space-y-1.5">
+              <div className="text-xs text-muted-foreground">Phone</div>
+              <div className="text-sm font-medium">6360406737 — Chaman Raj</div>
+              <div className="text-sm font-medium">9019559744 — Vikas S.P</div>
+              <div className="text-sm font-medium">7019058457 — Shashank S.M</div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 rounded-2xl glass p-5">
+            <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
+              <MapPin className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="text-xs text-muted-foreground">Location</div>
+              <div className="text-sm font-medium">Remote — Worldwide</div>
             </div>
           </div>
         </div>
@@ -218,7 +234,7 @@ export function Footer() {
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-(image:--gradient-primary) text-primary-foreground">
               <Rocket className="h-5 w-5" />
             </span>
-            <span className="text-lg font-bold">TRIA<span className="text-gradient"> Solutions</span></span>
+            <span className="text-lg font-bold">TRIA<span className="text-gradient">Solutions</span></span>
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
             A boutique software team turning ideas into powerful digital experiences.
@@ -246,8 +262,8 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-semibold">Get in touch</h4>
           <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-            <li>hello@triasolutions.com</li>
-            <li>+1 (000) 123-4567</li>
+            <li>triasolutions14@gmail.com</li>
+            <li>+91 6360406737</li>
           </ul>
         </div>
       </div>
