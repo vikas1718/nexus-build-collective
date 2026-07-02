@@ -4,7 +4,7 @@ import { Navbar } from "@/components/site/navbar";
 import { Hero } from "@/components/site/hero";
 import { Trust, About, Services, WhyChooseUs, Process } from "@/components/site/sections";
 import {
-  Portfolio, CaseStudies, TechStack, Testimonials, FAQ, BlogPreview,
+  Portfolio, CaseStudies, TechStack, Testimonials, FAQ,
 } from "@/components/site/showcase";
 import { Footer } from "@/components/site/contact";
 import {
@@ -34,7 +34,7 @@ function Index() {
         <TechStack />
         <Testimonials />
         <FAQ />
-        <BlogPreview />
+        
       </main>
       <Footer />
       <BackToTop />
