@@ -191,9 +191,12 @@ export function TechStack() {
 
 /* ---------------- TESTIMONIALS ---------------- */
 const reviews = [
-  { name: "Sarah Lin", company: "CEO, BrightApp", text: "TRIA Solutions delivered our MVP in six weeks and it looked like a funded startup. Incredible team.", rating: 5 },
-  { name: "James Cole", company: "Founder, MediConnect", text: "They understood our vision immediately and executed flawlessly. Communication was top-notch.", rating: 5 },
-  { name: "Priya Nair", company: "CMO, Vesta", text: "Our conversion rate doubled after the redesign. Worth every penny and then some.", rating: 5 },
+  {
+    name: "Building Our First Success Story",
+    company: "Your Business Could Be Here",
+    text: "We're currently partnering with our first clients to build high-quality, custom websites. We'd love to help bring your idea to life.",
+    rating: 5,
+  }
 ];
 
 export function Testimonials() {
