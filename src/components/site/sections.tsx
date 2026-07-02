@@ -110,7 +110,7 @@ export function About() {
               <p className="text-sm text-primary">{f.role}</p>
               <p className="mt-3 text-sm text-muted-foreground">{f.bio}</p>
               <div className="mt-5 flex gap-3">
-                <a href="https://github.com" target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-lg glass px-3 py-2 text-xs font-medium transition-colors hover:text-primary">
+                <a href="https://github.com/vikas1718/" target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-lg glass px-3 py-2 text-xs font-medium transition-colors hover:text-primary">
                   <Github className="h-4 w-4" /> GitHub
                 </a>
                 <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-lg glass px-3 py-2 text-xs font-medium transition-colors hover:text-primary">
