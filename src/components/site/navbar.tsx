@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Menu, X, Rocket } from "lucide-react";
+import { useNavigate, useRouterState, Link } from "@tanstack/react-router";
+import { ThemeToggle } from "./theme";
 
 const links = [
   { label: "About", href: "#about" },
@@ -14,6 +16,8 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -24,7 +28,16 @@ export function Navbar() {
 
   const go = (href: string) => {
     setOpen(false);
+    if (pathname !== "/") {
+      navigate({ to: "/", hash: href.replace("#", "") });
+      return;
+    }
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const goContact = () => {
+    setOpen(false);
+    navigate({ to: "/contact" });
   };
 
   return (
@@ -61,11 +74,18 @@ export function Navbar() {
                 {l.label}
               </button>
             ))}
+            <Link
+              to="/contact"
+              className="rounded-lg px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Contact
+            </Link>
           </nav>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <button
-              onClick={() => go("#contact")}
+              onClick={goContact}
               className="hidden rounded-xl bg-[image:var(--gradient-primary)] px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105 sm:block"
             >
               Start Project
@@ -100,7 +120,13 @@ export function Navbar() {
                 </button>
               ))}
               <button
-                onClick={() => go("#contact")}
+                onClick={goContact}
+                className="rounded-lg px-4 py-3 text-left text-sm font-medium text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
+              >
+                Contact
+              </button>
+              <button
+                onClick={goContact}
                 className="mt-2 rounded-xl bg-[image:var(--gradient-primary)] px-4 py-3 text-sm font-semibold text-primary-foreground"
               >
                 Start Project

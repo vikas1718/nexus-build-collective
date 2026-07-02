@@ -6,7 +6,7 @@ import { Trust, About, Services, WhyChooseUs, Process } from "@/components/site/
 import {
   Portfolio, CaseStudies, TechStack, Testimonials, FAQ, BlogPreview,
 } from "@/components/site/showcase";
-import { Contact, Footer } from "@/components/site/contact";
+import { Footer } from "@/components/site/contact";
 import {
   ScrollProgress, CursorGlow, BackToTop, WhatsAppButton, Loader,
 } from "@/components/site/global-ux";
@@ -35,7 +35,6 @@ function Index() {
         <Testimonials />
         <FAQ />
         <BlogPreview />
-        <Contact />
       </main>
       <Footer />
       <BackToTop />
@@ -44,3 +43,4 @@ function Index() {
     </div>
   );
 }
+
