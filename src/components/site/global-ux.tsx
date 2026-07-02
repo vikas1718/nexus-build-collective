@@ -90,7 +90,7 @@ export function Loader() {
           <span className="absolute inset-0 animate-spin rounded-full border-2 border-primary/20 border-t-primary" />
           <span className="absolute inset-2 animate-spin rounded-full border-2 border-cyan/20 border-b-cyan [animation-direction:reverse]" />
         </div>
-        <span className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Nebula</span>
+        <span className="text-sm uppercase tracking-[0.4em] text-muted-foreground">TRIA</span>
       </div>
     </motion.div>
   );

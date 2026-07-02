@@ -9,13 +9,13 @@ import {
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Nebula Studio" },
+      { title: "Contact — TRIA Solutions" },
       {
         name: "description",
         content:
-          "Get in touch with Nebula Studio. Tell us about your project and we'll get back within 24 hours.",
+          "Get in touch with TRIA Solutions. Tell us about your project and we'll get back within 24 hours.",
       },
-      { property: "og:title", content: "Contact — Nebula Studio" },
+      { property: "og:title", content: "Contact — TRIA Solutions" },
       {
         property: "og:description",
         content: "Tell us about your project and we'll get back within 24 hours.",

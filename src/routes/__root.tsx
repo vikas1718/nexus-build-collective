@@ -78,14 +78,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nebula Studio — Digital Product Agency" },
+      { title: "TRIA Solutions — Digital Product Agency" },
       {
         name: "description",
         content:
-          "Nebula Studio is a boutique software team building modern websites, web apps, and AI-powered products for startups and businesses.",
+          "TRIA Solutions is a software team building modern websites, web apps, and AI-powered products for startups and businesses.",
       },
-      { name: "author", content: "Nebula Studio" },
-      { property: "og:title", content: "Nebula Studio — Digital Product Agency" },
+      { name: "author", content: "TRIA Solutions" },
+      { property: "og:title", content: "TRIA Solutions — Digital Product Agency" },
       {
         property: "og:description",
         content:

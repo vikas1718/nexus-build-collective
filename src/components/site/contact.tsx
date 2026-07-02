@@ -27,7 +27,7 @@ export function Contact() {
       <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
         <div className="space-y-4">
           {[
-            { icon: Mail, label: "Email", value: "hello@nebulastudio.dev" },
+            { icon: Mail, label: "Email", value: "hello@triasolutions.com" },
             { icon: Phone, label: "Phone", value: "+1 (000) 123-4567" },
             { icon: MapPin, label: "Location", value: "Remote — Worldwide" },
           ].map((c) => (
@@ -107,7 +107,7 @@ export function Footer() {
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-primary-foreground">
               <Rocket className="h-5 w-5" />
             </span>
-            <span className="text-lg font-bold">Nebula<span className="text-gradient">Studio</span></span>
+            <span className="text-lg font-bold">TRIA<span className="text-gradient"> Solutions</span></span>
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
             A boutique software team turning ideas into powerful digital experiences.
@@ -135,14 +135,14 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-semibold">Get in touch</h4>
           <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-            <li>hello@nebulastudio.dev</li>
+            <li>hello@triasolutions.com</li>
             <li>+1 (000) 123-4567</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-5 py-6 text-xs text-muted-foreground sm:flex-row sm:px-8">
-          <span>© {new Date().getFullYear()} Nebula Studio. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} TRIA Solutions. All rights reserved.</span>
           <div className="flex gap-5">
             <a href="#" className="transition-colors hover:text-foreground">Privacy Policy</a>
             <a href="#" className="transition-colors hover:text-foreground">Terms</a>

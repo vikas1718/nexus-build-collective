@@ -191,7 +191,7 @@ export function TechStack() {
 
 /* ---------------- TESTIMONIALS ---------------- */
 const reviews = [
-  { name: "Sarah Lin", company: "CEO, BrightApp", text: "Nebula delivered our MVP in six weeks and it looked like a funded startup. Incredible team.", rating: 5 },
+  { name: "Sarah Lin", company: "CEO, BrightApp", text: "TRIA Solutions delivered our MVP in six weeks and it looked like a funded startup. Incredible team.", rating: 5 },
   { name: "James Cole", company: "Founder, MediConnect", text: "They understood our vision immediately and executed flawlessly. Communication was top-notch.", rating: 5 },
   { name: "Priya Nair", company: "CMO, Vesta", text: "Our conversion rate doubled after the redesign. Worth every penny and then some.", rating: 5 },
 ];

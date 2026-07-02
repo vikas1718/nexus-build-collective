@@ -60,7 +60,7 @@ export function Navbar() {
               <Rocket className="h-5 w-5" />
             </span>
             <span className="text-lg font-bold tracking-tight">
-              Nebula<span className="text-gradient">Studio</span>
+              TRIA<span className="text-gradient"> Solutions</span>
             </span>
           </button>
 
