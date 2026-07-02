@@ -102,7 +102,7 @@ export function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <button
-              onClick={() => scrollTo("#contact")}
+              onClick={() => navigate({ to: "/contact" })}
               className="group inline-flex items-center gap-2 rounded-xl bg-[image:var(--gradient-primary)] px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105"
             >
               Start Your Project
