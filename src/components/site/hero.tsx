@@ -105,7 +105,7 @@ export function Hero() {
               onClick={() => navigate({ to: "/contact" })}
               className="group inline-flex items-center gap-2 rounded-xl bg-[image:var(--gradient-primary)] px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105"
             >
-              Start Your Project
+              Book Now
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
             <button
