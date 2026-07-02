@@ -23,7 +23,12 @@ const trust = [
 
 export function Trust() {
   return (
-    <Section id="trust" className="py-16">
+    <Section id="trust" className="py-16 relative">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_70%)]">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(0.65_0.24_295/0.10)_1px,transparent_1px),linear-gradient(to_bottom,oklch(0.78_0.15_200/0.10)_1px,transparent_1px)] bg-[size:64px_64px] opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
+      </div>
+
       <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
         {trust.map((t, i) => (
           <motion.div
@@ -55,6 +60,8 @@ const founders = [
     name: "Vikas S P",
     role: "Co-Founder · Engineering",
     bio: "Systems engineer specializing in distributed platforms, backend architecture, and developer tooling.",
+    github: "https://github.com/vikas1718/",
+    linkedin: "",
   },
   {
     initials: "CR",
@@ -62,6 +69,8 @@ const founders = [
     name: "Chaman Raj",
     role: "Co-Founder · AI & Product",
     bio: "AI researcher turned builder. Leads applied ML, LLM systems, and product experience.",
+    github: "https://github.com/chamanraj122004-blip/",
+    linkedin: "",
   },
   {
     initials: "SM",
@@ -69,6 +78,8 @@ const founders = [
     name: "Shashank S M",
     role: "Co-Founder · Cloud & Design",
     bio: "Cloud architect and designer. Bridges infrastructure, DevOps, and beautiful interfaces.",
+    github: "https://github.com/shashank143-gowda/",
+    linkedin: "",
   },
 ];
 
@@ -110,10 +121,22 @@ export function About() {
               <p className="text-sm text-primary">{f.role}</p>
               <p className="mt-3 text-sm text-muted-foreground">{f.bio}</p>
               <div className="mt-5 flex gap-3">
-                <a href="https://github.com/vikas1718/" target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-lg glass px-3 py-2 text-xs font-medium transition-colors hover:text-primary">
+                <a
+                  href={f.github || "#"}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${f.name} on GitHub`}
+                  className="flex flex-1 items-center justify-center gap-2 rounded-lg glass px-3 py-2 text-xs font-medium transition-colors hover:text-primary"
+                >
                   <Github className="h-4 w-4" /> GitHub
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-lg glass px-3 py-2 text-xs font-medium transition-colors hover:text-primary">
+                <a
+                  href={f.linkedin || "#"}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${f.name} on LinkedIn`}
+                  className="flex flex-1 items-center justify-center gap-2 rounded-lg glass px-3 py-2 text-xs font-medium transition-colors hover:text-primary"
+                >
                   <Linkedin className="h-4 w-4" /> LinkedIn
                 </a>
               </div>
@@ -142,7 +165,12 @@ const services = [
 
 export function Services() {
   return (
-    <Section id="services">
+    <Section id="services" className="relative">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_70%)]">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(0.55_0.25_295/0.12)_1px,transparent_1px),linear-gradient(to_bottom,oklch(0.6_0.15_200/0.10)_1px,transparent_1px)] bg-[size:72px_72px] opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
+      </div>
+
       <SectionHeading
         eyebrow="Services"
         title={<>Everything you need to <span className="text-gradient">launch & grow</span></>}
@@ -235,7 +263,11 @@ const steps = [
 
 export function Process() {
   return (
-    <Section id="process">
+    <Section id="process" className="relative">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_72%)]">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(0.65_0.24_295/0.12)_1px,transparent_1px),linear-gradient(to_bottom,oklch(0.78_0.15_200/0.10)_1px,transparent_1px)] bg-[size:56px_56px] opacity-60" />
+      </div>
+
       <SectionHeading
         eyebrow="Our Process"
         title={<>A clear path from <span className="text-gradient">idea to launch</span></>}

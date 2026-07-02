@@ -74,12 +74,7 @@ export function Navbar() {
                 {l.label}
               </button>
             ))}
-            <Link
-              to="/contact"
-              className="rounded-lg px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Contact
-            </Link>
+
           </nav>
 
           <div className="flex items-center gap-2">
@@ -119,12 +114,7 @@ export function Navbar() {
                   {l.label}
                 </button>
               ))}
-              <button
-                onClick={goContact}
-                className="rounded-lg px-4 py-3 text-left text-sm font-medium text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
-              >
-                Contact
-              </button>
+
               <button
                 onClick={goContact}
                 className="mt-2 rounded-xl bg-[image:var(--gradient-primary)] px-4 py-3 text-sm font-semibold text-primary-foreground"
