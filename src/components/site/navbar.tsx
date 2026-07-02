@@ -120,7 +120,13 @@ export function Navbar() {
                 </button>
               ))}
               <button
-                onClick={() => go("#contact")}
+                onClick={goContact}
+                className="rounded-lg px-4 py-3 text-left text-sm font-medium text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
+              >
+                Contact
+              </button>
+              <button
+                onClick={goContact}
                 className="mt-2 rounded-xl bg-[image:var(--gradient-primary)] px-4 py-3 text-sm font-semibold text-primary-foreground"
               >
                 Start Project
