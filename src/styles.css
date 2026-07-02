@@ -203,15 +203,15 @@
 }
 
 @utility glass {
-  background: oklch(0.24 0.03 275 / 0.5);
+  background: var(--glass-bg);
   backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid oklch(0.6 0.05 275 / 0.15);
+  border: 1px solid var(--glass-border);
 }
 
 @utility glass-strong {
-  background: oklch(0.2 0.03 275 / 0.8);
+  background: var(--glass-strong-bg);
   backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid oklch(0.6 0.05 275 / 0.2);
+  border: 1px solid var(--glass-strong-border);
 }
 
 @utility glow-border {
