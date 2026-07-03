@@ -200,49 +200,7 @@ const reviews = [
 ];
 
 export function Testimonials() {
-  const [idx, setIdx] = useState(0);
-  const r = reviews[idx];
-  return (
-    <Section id="testimonials">
-      <SectionHeading eyebrow="Testimonials" title={<>Loved by <span className="text-gradient">the people we build with</span></>} />
-      <div className="mx-auto max-w-3xl">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -40 }}
-            transition={{ duration: 0.4 }}
-            className="rounded-3xl glass p-8 text-center sm:p-12"
-          >
-            <Quote className="mx-auto h-10 w-10 text-primary/40" />
-            <p className="mt-6 text-lg leading-relaxed sm:text-xl">"{r.text}"</p>
-            <div className="mt-6 flex justify-center gap-1">
-              {Array.from({ length: r.rating }).map((_, i) => (
-                <motion.span key={i} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.1 + i * 0.08 }}>
-                  <Star className="h-5 w-5 fill-primary text-primary" />
-                </motion.span>
-              ))}
-            </div>
-            <div className="mt-4">
-              <div className="font-semibold">{r.name}</div>
-              <div className="text-sm text-muted-foreground">{r.company}</div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-        <div className="mt-6 flex justify-center gap-2">
-          {reviews.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIdx(i)}
-              aria-label={`Testimonial ${i + 1}`}
-              className={`h-2.5 rounded-full transition-all ${i === idx ? "w-8 bg-primary" : "w-2.5 bg-muted"}`}
-            />
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
+  return null;
 }
 
 /* ---------------- FAQ ---------------- */
@@ -268,6 +226,7 @@ const faqs = [
     a: "Yes. We offer post-launch support and can help with updates, maintenance, and future improvements as your business grows.",
   },
 ];
+
 
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);

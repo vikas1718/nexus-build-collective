@@ -32,7 +32,7 @@ function Index() {
         <Portfolio />
         <CaseStudies />
         <TechStack />
-        <Testimonials />
+
         <FAQ />
         
       </main>

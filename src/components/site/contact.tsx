@@ -240,8 +240,36 @@ export function Footer() {
             A boutique software team turning ideas into powerful digital experiences.
           </p>
           <div className="mt-5 flex gap-3">
-            {[Github, Linkedin, Instagram, Mail].map((Icon, i) => (
-              <a key={i} href="#" className="grid h-10 w-10 place-items-center rounded-xl glass transition-colors hover:text-primary">
+            {[
+              {
+                Icon: Github,
+                href: "https://github.com/TriaSolutions",
+                label: "TRIA Solutions on GitHub",
+              },
+              {
+                Icon: Linkedin,
+                href: "https://www.linkedin.com/in/tria-solutions-45870241b",
+                label: "TRIA Solutions on LinkedIn",
+              },
+              {
+                Icon: Instagram,
+                href: "https://www.instagram.com/tria_solutions14?igsh=MTgwYmk0YXV6bjF3eA%3D%3D",
+                label: "TRIA Solutions on Instagram",
+              },
+              {
+                Icon: Mail,
+                href: "mailto:triasolutions14@gmail.com",
+                label: "Email TRIA Solutions",
+              },
+            ].map(({ Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                className="grid h-10 w-10 place-items-center rounded-xl glass transition-colors hover:text-primary"
+              >
                 <Icon className="h-4 w-4" />
               </a>
             ))}
