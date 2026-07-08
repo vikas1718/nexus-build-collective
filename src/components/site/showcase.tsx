@@ -1,23 +1,43 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { ArrowUpRight, ExternalLink, FileText, Star, Quote, Plus, Minus } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Plus, Minus } from "lucide-react";
 import { Section, SectionHeading, fadeUp, Counter } from "./primitives";
-import p1 from "@/assets/proj-1.jpg";
-import p2 from "@/assets/proj-2.jpg";
-import p3 from "@/assets/proj-3.jpg";
-import p4 from "@/assets/proj-4.jpg";
-import p5 from "@/assets/proj-5.jpg";
-import p6 from "@/assets/proj-6.jpg";
 
 /* ---------------- PORTFOLIO ---------------- */
-const filters = ["All", "Business", "Healthcare", "Education", "AI", "Dashboard", "E-Commerce"];
+const filters = ["All", "AI", "E-Commerce", "Agriculture", "Hospitality"];
 const projects = [
-  { img: p1, title: "InsightIQ Analytics", cat: "Dashboard", tech: ["React", "Node", "PostgreSQL"], desc: "Realtime analytics platform for SaaS teams." },
-  { img: p2, title: "MediConnect", cat: "Healthcare", tech: ["Next.js", "Firebase"], desc: "Telemedicine booking & video consultations." },
-  { img: p3, title: "Vesta Fashion", cat: "E-Commerce", tech: ["React", "Stripe"], desc: "Premium online fashion storefront." },
-  { img: p4, title: "LearnSphere", cat: "Education", tech: ["Vue", "Node"], desc: "Interactive online learning platform." },
-  { img: p5, title: "Aida AI", cat: "AI", tech: ["Next.js", "OpenAI"], desc: "AI chatbot builder for support teams." },
-  { img: p6, title: "Peak Advisory", cat: "Business", tech: ["React", "Tailwind"], desc: "Corporate consulting web presence." },
+  {
+    img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=85",
+    title: "AI News Editor",
+    cat: "AI",
+    tech: ["React", "AI Workflow", "Netlify"],
+    desc: "An intelligent editorial workspace for drafting, refining, and publishing timely news content with AI assistance.",
+    demo: "https://ai-news-editor.netlify.app/",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=85",
+    title: "Shopping Cloth UMO",
+    cat: "E-Commerce",
+    tech: ["React", "E-Commerce", "Responsive UI"],
+    desc: "A fashion-focused online storefront built around clean product discovery, polished browsing, and conversion-ready shopping flows.",
+    demo: "https://uomo-ecommerce-website.netlify.app/",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=1200&q=85",
+    title: "Agri Connect",
+    cat: "Agriculture",
+    tech: ["React", "AgriTech", "Netlify"],
+    desc: "A smart agriculture platform concept connecting modern farm workflows, crop insights, and accessible digital services.",
+    demo: "https://69dc6b88f73bbf9e0e02099e--roaring-brigadeiros-1d9fbf.netlify.app/",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85",
+    title: "Coffee Shop Roastery",
+    cat: "Hospitality",
+    tech: ["Website", "Brand Experience", "Responsive Design"],
+    desc: "A premium coffee shop web experience with refined visuals, clear brand presentation, and an inviting customer journey.",
+    demo: "https://roasterycoffee.co.in/",
+  },
 ];
 
 export function Portfolio() {
@@ -45,7 +65,7 @@ export function Portfolio() {
           </button>
         ))}
       </div>
-      <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <motion.div layout className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         <AnimatePresence mode="popLayout">
           {shown.map((p) => (
             <motion.div
@@ -55,9 +75,9 @@ export function Portfolio() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4 }}
-              className="group relative overflow-hidden rounded-3xl glass"
+              className="group relative flex h-full flex-col overflow-hidden rounded-3xl glass shadow-elegant transition-all duration-500 hover:-translate-y-2 hover:shadow-glow"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-video overflow-hidden">
                 <img
                   src={p.img}
                   alt={p.title}
@@ -66,28 +86,29 @@ export function Portfolio() {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-background via-background/60 to-transparent p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  <div className="flex gap-3">
-                    <a href="#" className="flex items-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground">
-                      <ExternalLink className="h-3.5 w-3.5" /> Live Demo
-                    </a>
-                    <a href="#" className="flex items-center gap-1.5 rounded-lg glass px-3 py-2 text-xs font-semibold">
-                      <FileText className="h-3.5 w-3.5" /> Case Study
-                    </a>
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-45" />
               </div>
-              <div className="p-5">
+              <div className="flex flex-1 flex-col p-5">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-medium uppercase tracking-wide text-primary">{p.cat}</span>
                   <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </div>
                 <h3 className="mt-1 text-lg font-semibold">{p.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{p.desc}</p>
+                <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">{p.desc}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <span key={t} className="rounded-md bg-secondary px-2 py-0.5 text-[11px] text-muted-foreground">{t}</span>
                   ))}
+                </div>
+                <div className="mt-5">
+                  <a
+                    href={p.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:-translate-y-0.5 hover:opacity-95"
+                  >
+                    <ExternalLink className="h-4 w-4" /> Live Demo
+                  </a>
                 </div>
               </div>
             </motion.div>

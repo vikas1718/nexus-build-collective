@@ -154,13 +154,13 @@ const services = [
   { icon: Globe, title: "Business Websites", desc: "Fast, SEO-ready sites that convert.", features: ["CMS", "Analytics", "SEO"] },
   { icon: User2, title: "Portfolio Websites", desc: "Showcase your work beautifully.", features: ["Custom design", "Gallery", "Blog"] },
   { icon: Rocket, title: "Startup MVP", desc: "Validate ideas fast with a lean build.", features: ["Auth", "Payments", "Scalable"] },
-  { icon: Brain, title: "AI Integration", desc: "Add intelligence to your product.", features: ["Chatbots", "LLMs", "Automation"] },
-  { icon: Code2, title: "Custom Web Apps", desc: "Complex logic, delightful UX.", features: ["Realtime", "APIs", "Cloud"] },
+  { id: "ai-integration", icon: Brain, title: "AI Integration", desc: "Add intelligence to your product.", features: ["Chatbots", "LLMs", "Automation"] },
+  { id: "web-apps", icon: Code2, title: "Custom Web Apps", desc: "Complex logic, delightful UX.", features: ["Realtime", "APIs", "Cloud"] },
   { icon: LayoutDashboard, title: "Admin Dashboards", desc: "Data at a glance, in control.", features: ["Charts", "Roles", "Exports"] },
-  { icon: ShoppingCart, title: "E-Commerce", desc: "Sell online with confidence.", features: ["Cart", "Payments", "Inventory"] },
+  { id: "e-commerce", icon: ShoppingCart, title: "E-Commerce", desc: "Sell online with confidence.", features: ["Cart", "Payments", "Inventory"] },
   { icon: Palette, title: "Landing Pages", desc: "High-converting campaign pages.", features: ["A/B", "Speed", "Forms"] },
   { icon: RefreshCw, title: "Website Redesign", desc: "Modernize your online presence.", features: ["Audit", "Rebrand", "Migrate"] },
-  { icon: Wrench, title: "Maintenance & Support", desc: "Keep everything running smoothly.", features: ["Updates", "Monitoring", "Fixes"] },
+  { id: "maintenance", icon: Wrench, title: "Maintenance & Support", desc: "Keep everything running smoothly.", features: ["Updates", "Monitoring", "Fixes"] },
 ];
 
 export function Services() {
@@ -180,6 +180,7 @@ export function Services() {
         {services.map((s, i) => (
           <motion.div
             key={s.title}
+            id={s.id}
             variants={fadeUp}
             custom={i % 3}
             initial="hidden"

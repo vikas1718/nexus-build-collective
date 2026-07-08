@@ -220,8 +220,18 @@ export function Contact() {
 }
 
 const footerLinks = {
-  Quick: ["About", "Portfolio", "Process", "FAQ"],
-  Services: ["Web Apps", "AI Integration", "E-Commerce", "Maintenance"],
+  Quick: [
+    { label: "About", href: "/#about" },
+    { label: "Portfolio", href: "/#portfolio" },
+    { label: "Process", href: "/#process" },
+    { label: "FAQ", href: "/#faq" },
+  ],
+  Services: [
+    { label: "Web Apps", href: "/#web-apps" },
+    { label: "AI Integration", href: "/#ai-integration" },
+    { label: "E-Commerce", href: "/#e-commerce" },
+    { label: "Maintenance", href: "/#maintenance" },
+  ],
 };
 
 export function Footer() {
@@ -280,8 +290,8 @@ export function Footer() {
             <h4 className="text-sm font-semibold">{title}</h4>
             <ul className="mt-4 space-y-2.5">
               {items.map((it) => (
-                <li key={it}>
-                  <a href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">{it}</a>
+                <li key={it.label}>
+                  <a href={it.href} className="text-sm text-muted-foreground transition-colors hover:text-primary">{it.label}</a>
                 </li>
               ))}
             </ul>
