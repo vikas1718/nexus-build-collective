@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Navbar } from "@/components/site/navbar";
 import { Contact, Footer } from "@/components/site/contact";
 import {
-  ScrollProgress, CursorGlow, BackToTop, WhatsAppButton,
+  ScrollProgress, CursorGlow, BackToTop, WebsiteChatbot,
 } from "@/components/site/global-ux";
 
 export const Route = createFileRoute("/contact")({
@@ -37,7 +37,7 @@ function ContactPage() {
       </main>
       <Footer />
       <BackToTop />
-      <WhatsAppButton />
+      <WebsiteChatbot />
       <Toaster position="top-center" />
     </div>
   );

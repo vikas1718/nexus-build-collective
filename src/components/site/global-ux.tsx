@@ -1,6 +1,6 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Bot, MessageCircle, Send, X } from "lucide-react";
 
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
@@ -53,21 +53,170 @@ export function BackToTop() {
   );
 }
 
-export function WhatsAppButton() {
+type ChatMessage = {
+  role: "assistant" | "user";
+  text: string;
+};
+
+const starterQuestions = [
+  "What services do you offer?",
+  "Show me portfolio projects",
+  "How can I contact TRIA?",
+];
+
+function answerWebsiteQuestion(question: string) {
+  const q = question.toLowerCase();
+
+  if (q.includes("service") || q.includes("web app") || q.includes("website") || q.includes("e-commerce") || q.includes("ai")) {
+    return "TRIA Solutions builds business websites, portfolio websites, startup MVPs, AI integrations, custom web apps, admin dashboards, e-commerce stores, landing pages, redesigns, and maintenance/support. For AI, web apps, and e-commerce, you can jump to the Services section from the footer.";
+  }
+
+  if (q.includes("portfolio") || q.includes("project") || q.includes("work") || q.includes("demo")) {
+    return "Our featured portfolio includes AI News Editor, Shopping Cloth UMO, Agri Connect, and Coffee Shop Roastery. Each card has a Live Demo button in the Portfolio section.";
+  }
+
+  if (q.includes("contact") || q.includes("email" ) || q.includes("phone") || q.includes("book") || q.includes("call")) {
+    return "You can book a project from the Book Now button or contact TRIA Solutions at triasolutions14@gmail.com. Phone contacts listed on the site are Chaman Raj: 6360406737, Vikas S.P: 9019559744, and Shashank S.M: 7019058457.";
+  }
+
+  if (q.includes("price") || q.includes("budget") || q.includes("cost") || q.includes("quote")) {
+    return "The contact form supports budget ranges of $2k - $5k, $5k - $15k, and $15k+. Share your project type, timeline, and requirements there so the team can suggest the right scope.";
+  }
+
+  if (q.includes("founder") || q.includes("team") || q.includes("about")) {
+    return "TRIA Solutions is led by Vikas S P, Chaman Raj, and Shashank S M. The About section introduces the founders and their engineering, AI/product, cloud, and design strengths.";
+  }
+
+  if (q.includes("process") || q.includes("steps") || q.includes("timeline")) {
+    return "The process is Discovery, Planning, UI/UX Design, Development, Testing, Deployment, and Maintenance. This keeps projects clear from first idea to launch and ongoing support.";
+  }
+
+  if (q.includes("tech") || q.includes("stack") || q.includes("technology")) {
+    return "The team works with modern stacks including React, Next.js, Angular, Vue, Node.js, Express, Python, .NET, Flutter, databases, Firebase, Docker, AWS, Azure, OpenAI, TailwindCSS, and TypeScript.";
+  }
+
+  if (q.includes("location") || q.includes("remote")) {
+    return "TRIA Solutions works remotely and can collaborate with clients worldwide.";
+  }
+
+  return "I can help with TRIA Solutions services, portfolio projects, process, tech stack, pricing ranges, and contact details. Try asking about services, portfolio, or how to book a project.";
+}
+
+export function WebsiteChatbot() {
+  const [open, setOpen] = useState(false);
+  const [input, setInput] = useState("");
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      role: "assistant",
+      text: "Hi, I am TRIA's website assistant. Ask me about services, portfolio projects, process, tech stack, pricing, or contact details.",
+    },
+  ]);
+
+  const sendMessage = (text = input) => {
+    const trimmed = text.trim();
+    if (!trimmed) return;
+    setMessages((current) => [
+      ...current,
+      { role: "user", text: trimmed },
+      { role: "assistant", text: answerWebsiteQuestion(trimmed) },
+    ]);
+    setInput("");
+    setOpen(true);
+  };
+
   return (
-    <motion.a
-      href="https://wa.me/10000000000"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Chat on WhatsApp"
-      whileHover={{ scale: 1.08 }}
-      whileTap={{ scale: 0.94 }}
-      className="fixed bottom-6 right-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-black shadow-[0_0_30px_-4px_#25D366]"
-    >
-      <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor">
-        <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.6 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.3 2.4 3.7 5.9 5.2 3.4 1.4 3.4 1 4 .9.6-.1 1.9-.8 2.2-1.6.3-.8.3-1.4.2-1.6-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z" />
-      </svg>
-    </motion.a>
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: 18, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          className="flex h-[min(620px,calc(100vh-7rem))] w-[min(380px,calc(100vw-2rem))] flex-col overflow-hidden rounded-3xl glass-strong shadow-elegant"
+        >
+          <div className="flex items-center justify-between border-b border-border px-4 py-3">
+            <div className="flex items-center gap-2.5">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-primary-foreground">
+                <Bot className="h-5 w-5" />
+              </span>
+              <div>
+                <div className="text-sm font-semibold">TRIA Assistant</div>
+                <div className="text-xs text-muted-foreground">Website help</div>
+              </div>
+            </div>
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Close chat"
+              className="grid h-9 w-9 place-items-center rounded-xl glass transition-colors hover:text-primary"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+
+          <div className="flex-1 space-y-3 overflow-y-auto p-4">
+            {messages.map((message, index) => (
+              <div
+                key={`${message.role}-${index}`}
+                className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`max-w-[86%] rounded-2xl px-4 py-2.5 text-sm leading-6 ${
+                    message.role === "user"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary text-secondary-foreground"
+                  }`}
+                >
+                  {message.text}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="border-t border-border p-4">
+            <div className="mb-3 flex flex-wrap gap-2">
+              {starterQuestions.map((question) => (
+                <button
+                  key={question}
+                  onClick={() => sendMessage(question)}
+                  className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  {question}
+                </button>
+              ))}
+            </div>
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+                sendMessage();
+              }}
+              className="flex gap-2"
+            >
+              <input
+                value={input}
+                onChange={(event) => setInput(event.target.value)}
+                placeholder="Ask about TRIA Solutions..."
+                className="min-w-0 flex-1 rounded-xl border border-input bg-background/60 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/30"
+              />
+              <button
+                type="submit"
+                aria-label="Send message"
+                className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground shadow-glow transition-transform hover:scale-105"
+              >
+                <Send className="h-4 w-4" />
+              </button>
+            </form>
+          </div>
+        </motion.div>
+      )}
+
+      <motion.button
+        onClick={() => setOpen((value) => !value)}
+        aria-label="Open website assistant"
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.94 }}
+        className="grid h-14 w-14 place-items-center rounded-full bg-[image:var(--gradient-primary)] text-primary-foreground shadow-glow"
+      >
+        {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
+      </motion.button>
+    </div>
   );
 }
 

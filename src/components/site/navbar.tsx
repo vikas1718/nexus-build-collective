@@ -1,8 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { useNavigate, useRouterState, Link } from "@tanstack/react-router";
-import { ThemeToggle } from "./theme";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 
 const links = [
   { label: "About", href: "#about" },
@@ -76,7 +75,6 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <ThemeToggle />
             <button
               onClick={goContact}
               className="hidden rounded-xl bg-[image:var(--gradient-primary)] px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105 sm:block"

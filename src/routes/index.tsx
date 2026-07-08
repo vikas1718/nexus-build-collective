@@ -8,7 +8,7 @@ import {
 } from "@/components/site/showcase";
 import { Footer } from "@/components/site/contact";
 import {
-  ScrollProgress, CursorGlow, BackToTop, WhatsAppButton, Loader,
+  ScrollProgress, CursorGlow, BackToTop, WebsiteChatbot, Loader,
 } from "@/components/site/global-ux";
 
 export const Route = createFileRoute("/")({
@@ -38,7 +38,7 @@ function Index() {
       </main>
       <Footer />
       <BackToTop />
-      <WhatsAppButton />
+      <WebsiteChatbot />
       <Toaster position="top-center" />
     </div>
   );
